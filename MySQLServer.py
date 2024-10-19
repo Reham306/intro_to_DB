@@ -17,8 +17,8 @@ def create_database():
             cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
             print("Database 'alx_book_store' created successfully!")
 
-    except Error as e:
-        print(f"Error: '{e}' occurred while connecting to MySQL server")
+    except mysql.connector.Error as err:  # Catching specific mysql.connector errors
+        print(f"Error: '{err}' occurred while connecting to MySQL server")
 
     finally:
         if connection.is_connected():
